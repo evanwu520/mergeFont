@@ -5,6 +5,7 @@ import tempfile
 # Open the base and merge fonts
 base = fontforge.open("baseXX.ttf")
 merge = fontforge.open("mergeXX.ttf")
+outFont = "outXXX.ttf"
 
 # Copy all glyphs from merge font, including those without Unicode
 for merge_glyph in merge.glyphs():
@@ -61,7 +62,7 @@ if validation_state != 0:
     print(f"Font validation issues: {validation_state}")
 
 # Generate the output font
-base.generate("outXXX.ttf")
+base.generate(outFont)
 
 # Close fonts
 base.close()
